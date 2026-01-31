@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hasan vs Eric • Football Trivia Duel</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="bg"></div>
+  <main class="wrap">
+    <section class="shell">
+      <header class="hdr">
+        <div class="brand">
+          <div class="ball" aria-hidden="true">⚽</div>
+          <div>
+            <div class="kicker">TRIVIA DUEL • 2-PLAYER • HOT-SEAT</div>
+            <h1>Hasan vs Eric: Football Peace Treaty (Signed With Mustache Kisses)</h1>
+            <p class="sub">A bright, fun quiz that escalates from easy → hard. Winner claims the legendary prize: <strong>the mustache kiss</strong>.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Lobby</h2>
+          <p class="muted">Set your names, then pass the phone each turn. Built for “brothers not by blood” who argued yesterday and need science to resolve it.</p>
+          <div class="row">
+            <div class="field">
+              <label>Player A</label>
+              <input id="p1Name" value="Hasan" maxlength="18"/>
+            </div>
+            <div class="field">
+              <label>Player B</label>
+              <input id="p2Name" value="Eric" maxlength="18"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Match length</label>
+              <select id="length">
+                <option value="short">Short (15 Q)</option>
+                <option value="standard" selected>Standard (30 Q)</option>
+                <option value="long">Long (45 Q)</option>
+                <option value="epic">Epic (60 Q)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Timer per question</label>
+              <select id="timer">
+                <option value="0">No timer</option>
+                <option value="15">15s</option>
+                <option value="20" selected>20s</option>
+                <option value="30">30s</option>
+              </select>
+            </div>
+          </div>
+          <button id="startBtn" class="btn primary wide">Start the Duel</button>
+          <p class="tiny">Tip: Use “Epic (60 Q)” for maximum chaos and maximum reconciliation.</p>
+        </div>
+
+        <div class="card">
+          <h2>Scoreboard</h2>
+          <div class="scoreGrid">
+            <div class="pCard" id="p1Card">
+              <div class="avatar" aria-hidden="true">🟦</div>
+              <div>
+                <div class="pName" id="p1Label">Hasan</div>
+                <div class="pMeta"><span class="pill easy">EASY</span> → <span class="pill med">MED</span> → <span class="pill hard">HARD</span></div>
+              </div>
+              <div class="nums">
+                <div><span class="num" id="p1Score">0</span><span class="lbl">Points</span></div>
+                <div><span class="num" id="p1Streak">0</span><span class="lbl">Streak</span></div>
+              </div>
+            </div>
+            <div class="pCard" id="p2Card">
+              <div class="avatar" aria-hidden="true">🟥</div>
+              <div>
+                <div class="pName" id="p2Label">Eric</div>
+                <div class="pMeta"><span class="pill easy">EASY</span> → <span class="pill med">MED</span> → <span class="pill hard">HARD</span></div>
+              </div>
+              <div class="nums">
+                <div><span class="num" id="p2Score">0</span><span class="lbl">Points</span></div>
+                <div><span class="num" id="p2Streak">0</span><span class="lbl">Streak</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metaBar">
+            <div class="metaItem"><span class="muted">Round</span><div id="roundLabel" class="metaVal">—</div></div>
+            <div class="metaItem"><span class="muted">Question</span><div id="qLabel" class="metaVal">—</div></div>
+            <div class="metaItem"><span class="muted">Turn</span><div id="turnLabel" class="metaVal">—</div></div>
+          </div>
+
+          <div class="row">
+            <button id="saveBtn" class="btn ghost">Save</button>
+            <button id="loadBtn" class="btn ghost">Load</button>
+            <button id="resetBtn" class="btn danger">Reset</button>
+          </div>
+          <p class="tiny">Save/Load uses this browser only (local storage). No uploads.</p>
+        </div>
+      </section>
+
+      <section class="card play">
+        <div class="playTop">
+          <div>
+            <div id="statusLine" class="status">Press “Start the Duel”.</div>
+            <div id="question" class="question">—</div>
+          </div>
+          <div class="timerBox">
+            <div class="muted">Time</div>
+            <div id="timeLeft" class="time">—</div>
+          </div>
+        </div>
+
+        <div id="answers" class="answers"></div>
+        <div id="feedback" class="feedback"></div>
+
+        <div class="divider"></div>
+        <div class="row">
+          <button id="nextBtn" class="btn primary" disabled>Next</button>
+          <button id="passBtn" class="btn ghost" disabled>Pass Phone 🔁</button>
+        </div>
+      </section>
+
+      <section id="final" class="card final hidden"></section>
+
+      <footer class="foot muted">
+        Built with love and respectful chaos. If you argued yesterday, this is your peace treaty. ✍️⚽
+      </footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
